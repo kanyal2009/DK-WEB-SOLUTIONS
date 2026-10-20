@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="DK WEB SOLUTIONS offers professional website design, branding and web development services.">
+<title>DK WEB SOLUTIONS | Web Design Agency</title>
+
+<style>
+:root {
+  --bg: #090909;
+  --surface: #181818;
+  --surface2: #202020;
+  --border: #303030;
+  --text: #f7f7f7;
+  --muted: #b0b0b0;
+  --purple: #5144bd;
+  --purple-light: #7868ff;
+  --gold: #d9b437;
+  --green: #168b55;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+.container { width: min(1120px, 90%); margin: auto; }
+section { padding: 85px 0; }
+h1, h2, h3 { line-height: 1.2; color: white; }
+h2 { font-size: clamp(29px, 4vw, 42px); margin: 12px 0 16px; }
+p { color: var(--muted); }
+.eyebrow {
+  color: var(--purple-light);
+  font-size: 12px; font-weight: 800; letter-spacing: 2px;
+}
+.section-heading {
+  max-width: 700px; text-align: center; margin: 0 auto 42px;
+}
+.section-heading p { font-size: 15px; }
+.btn {
+  display: inline-flex; justify-content: center; align-items: center;
+  gap: 8px; padding: 12px 20px; border-radius: 8px;
+  border: 1px solid var(--purple); background: var(--purple);
+  color: white; font-weight: 700; font-size: 14px;
+  cursor: pointer; transition: .2s;
+}
+.btn:hover { background: #6254d4; transform: translateY(-2px); }
+.btn-outline { background: transparent; border-color: #555; }
+.btn-outline:hover { background: var(--surface2); }
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: #090909ed; backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+nav {
+  min-height: 76px; display: flex; justify-content: space-between;
+  align-items: center; gap: 20px;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+.logo-mark {
+  display: grid; place-items: center; width: 42px; height: 42px;
+  background: var(--purple); border-radius: 10px; color: white;
+}
+.nav-links { display: flex; align-items: center; gap: 23px; font-size: 14px; font-weight: 700; }
+.nav-links a:not(.btn):hover { color: var(--purple-light); }
+.menu-toggle {
+  display: none; color: white; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 11px; font-size: 22px; cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 0;
+  background: radial-gradient(ellipse at 85% 15%, #5144bd35, transparent 43%);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center; gap: 50px;
+}
+.hero-tag {
+  display: inline-block; padding: 7px 13px;
+  border: 1px solid #5144bd66; border-radius: 30px;
+  background: #5144bd1b; color: #c0b8ff; font-size: 12px; font-weight: 800;
+}
+.hero h1 {
+  margin: 24px 0; font-size: clamp(40px, 5.5vw, 66px);
+  letter-spacing: -2px;
+}
+.hero h1 span {
+  background: linear-gradient(100deg, #9a8dff, #6655e7);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-copy { font-size: 17px; max-width: 540px; margin-bottom: 25px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.hero-note { font-size: 12px; }
+.hero-preview {
+  padding: 28px; border: 1px solid #383044; border-radius: 20px;
+  background: linear-gradient(145deg, #1b1923, #111111);
+  box-shadow: 0 25px 80px #5144bd20;
+}
+.preview-top { display: flex; gap: 6px; padding-bottom: 20px; border-bottom: 1px solid #333; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #777; }
+.preview-label { color: #a99dff; font-size: 12px; font-weight: 800; margin-top: 28px; }
+.hero-preview h3 { font-size: 31px; margin: 12px 0; }
+.hero-preview p { font-size: 13px; margin-bottom: 22px; }
+.preview-blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
+.preview-blocks div {
+  height: 78px; border: 1px solid #393244; border-radius: 9px;
+  background: linear-gradient(145deg, #282237, #17151d);
+}
+
+/* General cards */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {
+  padding: 26px; border: 1px solid var(--border);
+  border-radius: 13px; background: var(--surface); transition: .25s;
+}
+.card:hover { transform: translateY(-5px); border-color: #6557bd; }
+.card-icon {
+  display: grid; place-items: center; width: 49px; height: 49px;
+  border-radius: 11px; background: #5144bd25; font-size: 23px; margin-bottom: 18px;
+}
+.card h3 { font-size: 19px; margin-bottom: 10px; }
+.card p { font-size: 14px; }
+
+/* Pricing */
+.pricing-section {
+  background: radial-gradient(ellipse at 50% 0%, #5144bd14, transparent 55%);
+}
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px; align-items: stretch;
+}
+.price-card {
+  position: relative; padding: 27px 22px;
+  border: 1px solid #303030; border-radius: 25px;
+  background: var(--surface); display: flex; flex-direction: column;
+  min-width: 0; transition: transform .2s, border-color .2s;
+}
+.price-card:hover { transform: translateY(-5px); border-color: #7567d6; }
+.price-card.popular {
+  background: var(--purple); border-color: #7567d6;
+  box-shadow: 0 15px 45px #5144bd25;
+}
+.popular-badge {
+  position: absolute; right: 15px; top: 15px;
+  padding: 4px 9px; border-radius: 5px;
+  background: #ffdf26; color: #161616;
+  font-size: 9px; font-weight: 900;
+}
+.plan-name { font-size: 17px; font-weight: 900; margin: 12px 0 2px; }
+.plan-description { font-size: 11px; color: #bdbdbd; min-height: 22px; }
+.popular .plan-description { color: #e1dcff; }
+.price {
+  font-size: 27px; font-weight: 900; letter-spacing: -.7px;
+  margin: 20px 0 24px; color: white;
+}
+.features {
+  list-style: none; display: grid; gap: 13px;
+  font-size: 12px; flex: 1; margin-bottom: 25px;
+}
+.features li::before { content: "• "; font-weight: 900; }
+.plan-btn {
+  width: 100%; text-align: center; padding: 11px 8px;
+  border: 1px solid #555; border-radius: 8px; font-size: 12px; font-weight: 800;
+}
+.plan-btn:hover { background: white; color: #151515; }
+.popular .plan-btn { background: white; color: var(--purple); border-color: white; }
+.pricing-note { text-align: center; font-size: 12px; margin-top: 24px; }
+
+/* About */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 45px;
+}
+.about-panel {
+  padding: 34px; border: 1px solid #393044; border-radius: 17px;
+  background: linear-gradient(140deg, #201c2d, #151515);
+}
+.about-panel h3 { font-size: 28px; margin: 16px 0; }
+.about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.about-points div {
+  padding: 12px; border-radius: 8px; background: #ffffff08;
+  border: 1px solid #ffffff10; font-size: 13px;
+}
+.about-copy p { margin: 14px 0; }
+
+/* Previous work */
+.projects { display: grid; gap: 22px; }
+.project {
+  display: grid; grid-template-columns: 1fr 150px 1fr;
+  align-items: center; gap: 25px; padding: 25px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 22px; transition: .2s;
+}
+.project:hover { border-color: #5144bd; }
+.project h3 { font-size: 19px; margin-bottom: 10px; }
+.project p { font-size: 13px; line-height: 1.6; }
+.project-badge {
+  display: inline-block; justify-self: start; align-self: start;
+  padding: 9px 15px; border-radius: 5px;
+  background: var(--gold); color: #161616;
+  font-size: 11px; font-weight: 900; text-align: center;
+}
+.project-link { color: #8cbdff; font-size: 12px; overflow-wrap: anywhere; }
+.project-link:hover { text-decoration: underline; color: white; }
+
+/* Process */
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.step {
+  padding: 23px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px;
+}
+.step-number { color: #a89cff; font-weight: 900; font-size: 14px; }
+.step h3 { font-size: 17px; margin: 13px 0 8px; }
+.step p { font-size: 13px; }
+
+/* Contact */
+.contact-grid {
+  display: grid; grid-template-columns: .85fr 1.15fr;
+  align-items: start; gap: 40px;
+}
+.contact-intro { margin: 14px 0 22px; }
+.contact-detail {
+  padding: 16px 0; border-bottom: 1px solid var(--border);
+}
+.contact-detail small { display: block; color: var(--muted); font-size: 12px; }
+.contact-detail strong { overflow-wrap: anywhere; }
+.contact-detail a:hover { color: #a89cff; }
+.contact-form {
+  padding: 28px; border: 1px solid var(--border);
+  border-radius: 15px; background: var(--surface);
+}
+.contact-form h3 { font-size: 23px; margin-bottom: 7px; }
+.form-intro { font-size: 13px; margin-bottom: 22px; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; margin-bottom: 6px; color: #f0f0f0;
+  font-size: 13px; font-weight: 700;
+}
+.field input, .field select, .field textarea {
+  width: 100%; padding: 12px; border: 1px solid #393939;
+  border-radius: 8px; outline: none; color: white; background: #101010;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--purple-light);
+}
+.field select option { background: #181818; }
+.field textarea { min-height: 105px; resize: vertical; }
+.contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.contact-buttons .btn { width: 100%; font-size: 12px; }
+.btn-whatsapp { background: var(--green); border-color: var(--green); }
+.btn-whatsapp:hover { background: #117546; }
+.form-note { font-size: 11px; margin-top: 13px; }
+
+/* Footer */
+footer { padding: 28px 0; border-top: 1px solid var(--border); }
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 15px;
+}
+.footer-brand { font-size: 14px; font-weight: 900; }
+.footer-inner p { font-size: 12px; }
+.back-top { color: #a89cff; font-size: 13px; font-weight: 700; }
+
+@media (max-width: 1000px) {
+  .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project { grid-template-columns: 1fr 130px; }
+  .project-link { grid-column: 1 / -1; }
+}
+@media (max-width: 850px) {
+  .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .hero-grid { gap: 38px; }
+  .hero-preview { max-width: 560px; width: 100%; margin: auto; }
+  .card-grid, .steps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  section { padding: 62px 0; }
+  .hero { padding: 65px 0; }
+  .hero h1 { letter-spacing: -1.5px; }
+  .hero-copy { font-size: 15px; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; top: 76px; left: 0; right: 0;
+    padding: 20px 5%; background: #101010;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column; align-items: stretch; gap: 16px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links .btn { text-align: center; }
+  .logo { font-size: 13px; gap: 7px; }
+  .logo-mark { width: 36px; height: 36px; }
+  .pricing-grid, .card-grid, .steps-grid { grid-template-columns: 1fr; }
+  .price-card { padding: 26px; }
+  .project { grid-template-columns: 1fr; gap: 13px; padding: 22px; }
+  .project-link { grid-column: auto; }
+  .about-panel, .contact-form { padding: 22px; }
+  .contact-buttons { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">
+      <span class="logo-mark">DK</span>
+      <span>DK WEB SOLUTIONS</span>
+    </a>
+    <button id="menuToggle" class="menu-toggle" type="button"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#projects">Previous Work</a>
+      <a href="#contact" class="btn">Contact Us ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-tag">✦ WEB DESIGN & DIGITAL SOLUTIONS</span>
+        <h1>We Build Websites That Make Your Brand <span>Stand Out.</span></h1>
+        <p class="hero-copy">
+          DK WEB SOLUTIONS creates modern, responsive websites for
+          businesses, restaurants, creators and growing brands.
+          Let's turn your idea into a professional online presence.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#pricing">Explore Our Plans ↗</a>
+          <a class="btn btn-outline" href="#projects">View Previous Work</a>
+        </div>
+        <p class="hero-note">✓ Responsive Design &nbsp; ✓ Modern UI &nbsp; ✓ Direct Support</p>
+      </div>
+
+      <div class="hero-preview">
+        <div class="preview-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="preview-label">DK WEB SOLUTIONS</div>
+        <h3>Your Vision.<br>Our Digital Craft.</h3>
+        <p>Professional websites built around your business goals.</p>
+        <a href="#contact" class="btn">Start a Project ↗</a>
+        <div class="preview-blocks">
+          <div></div><div></div><div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">WHAT WE DO</span>
+        <h2>Our Web Design Services</h2>
+        <p>Digital experiences designed to help your business look professional online.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Business Websites</h3>
+          <p>Professional websites that showcase your business, services and contact details.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📱</div>
+          <h3>Landing Pages</h3>
+          <p>Focused pages for campaigns, products, services and business offers.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🛍️</div>
+          <h3>Online Stores</h3>
+          <p>Product displays and e-commerce experiences tailored to your requirements.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Premium Branding</h3>
+          <p>Consistent colours, typography and layouts that help your brand stand out.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Animations & UI</h3>
+          <p>Modern interfaces and subtle animations for a polished browsing experience.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔧</div>
+          <h3>Website Redesign</h3>
+          <p>Improve an existing website's presentation, navigation and mobile layout.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">TRANSPARENT PRICING</span>
+        <h2>Choose Your Website Plan</h2>
+        <p>Choose a package based on your business needs and the features you require.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card">
+          <h3 class="plan-name">STARTER</h3>
+          <p class="plan-description">Basic Online Presence</p>
+          <div class="price">₹7,999</div>
+          <ul class="features">
+            <li>Premium Landing Page</li>
+            <li>Mobile Optimized</li>
+            <li>Call Button</li>
+            <li>WhatsApp Button</li>
+            <li>Google Maps</li>
+            <li>Basic Gallery</li>
+            <li>Contact Section</li>
+          </ul>
+          <a class="plan-btn" href="#contact" data-plan="Starter - ₹7,999">Choose Starter</a>
+        </article>
+
+        <article class="price-card">
+          <h3 class="plan-name">STANDARD</h3>
+          <p class="plan-description">Premium Online Image</p>
+          <div class="price">₹14,999</div>
+          <ul class="features">
+            <li>Everything in Starter +</li>
+            <li>Full Multi-Section Website</li>
+            <li>Premium Animations</li>
+            <li>Digital Menu</li>
+            <li>Reviews Section</li>
+            <li>Gallery Slider</li>
+            <li>Basic SEO Setup</li>
+          </ul>
+          <a class="plan-btn" href="#contact" data-plan="Standard - ₹14,999">Choose Standard</a>
+        </article>
+
+        <article class="price-card popular">
+          <span class="popular-badge">POPULAR</span>
+          <h3 class="plan-name">PREMIUM</h3>
+          <p class="plan-description">Luxury Branding</p>
+          <div class="price">₹21,999</div>
+          <ul class="features">
+            <li>Everything in Standard +</li>
+            <li>Luxury Cinematic Design</li>
+            <li>Advanced Branding</li>
+            <li>Custom Food Showcase</li>
+            <li>Table Reservation Feature</li>
+            <li>Full Mobile Optimization</li>
+            <li>Premium Loading Effects</li>
+            <li>Priority Support</li>
+          </ul>
+          <a class="plan-btn" href="#contact" data-plan="Premium - ₹21,999">Choose Premium</a>
+        </article>
+
+        <article class="price-card">
+          <h3 class="plan-name">ELITE</h3>
+          <p class="plan-description">Enterprise Level</p>
+          <div class="price">₹34,999+</div>
+          <ul class="features">
+            <li>Everything in Premium</li>
+            <li>Online Ordering System</li>
+            <li>Admin Panel</li>
+            <li>Dynamic Menu Management</li>
+            <li>Multiple Branch Support</li>
+            <li>Custom Features</li>
+            <li>High-End Animations</li>
+          </ul>
+          <a class="plan-btn" href="#contact" data-plan="Elite - ₹34,999+">Choose Elite</a>
+        </article>
+      </div>
+      <p class="pricing-note">
+        Prices are in INR. Final scope, third-party services, hosting and maintenance
+        should be confirmed before work begins.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-panel">
+        <span class="eyebrow">THE DK APPROACH</span>
+        <h3>Quality Design. Clear Communication.</h3>
+        <p>We focus on creating digital experiences that reflect each client's goals and brand identity.</p>
+        <div class="about-points">
+          <div>✓ Modern UI/UX</div>
+          <div>✓ Responsive Layouts</div>
+          <div>✓ Clear Navigation</div>
+          <div>✓ Direct Enquiries</div>
+        </div>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">ABOUT US</span>
+        <h2>Ideas Into Digital Experiences.</h2>
+        <p>DK WEB SOLUTIONS provides website design solutions for businesses, entrepreneurs and brands.</p>
+        <p>From a simple business landing page to a more feature-rich website, we aim to create a professional online experience that suits your needs.</p>
+        <p>Our process starts by understanding your requirements, agreeing on the project scope and planning the right solution.</p>
+        <a href="#contact" class="btn">Discuss Your Project ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIOUS WORK -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">OUR PORTFOLIO</span>
+        <h2>Previous Works & Projects</h2>
+        <p>Explore these websites and see examples of our digital work.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project">
+          <div>
+            <h3>Maruti Sweets & Bakers</h3>
+            <p>Clean business presentation<br>
+              Mobile optimized<br>
+              Contact-focused local business site</p>
+          </div>
+          <span class="project-badge">Starter Plan</span>
+          <a class="project-link" href="https://marutisweets.tiny.site/"
+             target="_blank" rel="noopener noreferrer">
+            Visit Website ↗<br>marutisweets.tiny.site
+          </a>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Genzee</h3>
+            <p>Modern UI/UX<br>
+              Premium animations<br>
+              Youth-focused branding experience</p>
+          </div>
+          <span class="project-badge">Standard Plan</span>
+          <a class="project-link" href="https://kanyal2009.github.io/genzee-/"
+             target="_blank" rel="noopener noreferrer">
+            Visit Website ↗<br>kanyal2009.github.io/genzee-/
+          </a>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>HPS Kichha</h3>
+            <p>Institutional-level project<br>
+              Partnership-based execution<br>
+              Large-scale professional presentation</p>
+          </div>
+          <span class="project-badge">Elite Plan</span>
+          <a class="project-link" href="https://hpskichha.com/"
+             target="_blank" rel="noopener noreferrer">
+            Visit Website ↗<br>hpskichha.com
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="background:#111" id="process">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">OUR PROCESS</span>
+        <h2>From Idea to Launch</h2>
+        <p>A clear process keeps your website project organised.</p>
+      </div>
+      <div class="steps-grid">
+        <article class="step">
+          <div class="step-number">STEP 01</div>
+          <h3>Discovery</h3>
+          <p>Understand your business, audience and goals.</p>
+        </article>
+        <article class="step">
+          <div class="step-number">STEP 02</div>
+          <h3>Planning</h3>
+          <p>Agree on features, pages, budget and timeline.</p>
+        </article>
+        <article class="step">
+          <div class="step-number">STEP 03</div>
+          <h3>Design & Build</h3>
+          <p>Create and review the website based on the agreed scope.</p>
+        </article>
+        <article class="step">
+          <div class="step-number">STEP 04</div>
+          <h3>Launch</h3>
+          <p>Test the website and publish it on the selected hosting platform.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">GET IN TOUCH</span>
+        <h2>Let's Build Something Great.</h2>
+        <p>Tell us about your next website project.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <h2>Let's Talk About Your Idea.</h2>
+          <p class="contact-intro">
+            Fill in the enquiry form and choose WhatsApp or email to send your
+            requirements directly to DK WEB SOLUTIONS.
+          </p>
+
+          <div class="contact-detail">
+            <small>WHATSAPP</small>
+            <strong>
+              <a href="https://wa.me/918171636905"
+                 target="_blank" rel="noopener noreferrer">
+                +91 81716 36905 ↗
+              </a>
+            </strong>
+          </div>
+          <div class="contact-detail">
+            <small>EMAIL</small>
+            <strong>
+              <a href="mailto:singhkanyald@gmail.com">
+                singhkanyald@gmail.com
+              </a>
+            </strong>
+          </div>
+          <div class="contact-detail">
+            <small>AGENCY</small>
+            <strong>DK WEB SOLUTIONS</strong>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Project Enquiry</h3>
+          <p class="form-intro">Tell us what you need. Fields marked * are required.</p>
+
+          <div class="field">
+            <label for="name">Your Name *</label>
+            <input id="name" name="name" required autocomplete="name"
+              placeholder="Enter your name">
+          </div>
+
+          <div class="field">
+            <label for="business">Business Name</label>
+            <input id="business" name="business" placeholder="Your business name">
+          </div>
+
+          <div class="field">
+            <label for="service">Service / Plan *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service or plan</option>
+              <option>Starter - ₹7,999</option>
+              <option>Standard - ₹14,999</option>
+              <option>Premium - ₹21,999</option>
+              <option>Elite - ₹34,999+</option>
+              <option>Custom Website</option>
+              <option>Website Redesign</option>
+              <option>Other Enquiry</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Project Details *</label>
+            <textarea id="message" name="message" required
+              placeholder="Describe the website you want..."></textarea>
+          </div>
+
+          <div class="contact-buttons">
+            <button type="button" class="btn btn-whatsapp" id="whatsappBtn">
+              WhatsApp ↗
+            </button>
+            <button type="button" class="btn" id="emailBtn">
+              Send Email ↗
+            </button>
+          </div>
+          <p class="form-note">
+            Your selected app will open with a pre-filled message.
+            Please review and send it there.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">DK WEB SOLUTIONS</div>
+    <p>© <span id="year"></span> DK WEB SOLUTIONS. All rights reserved.</p>
+    <a class="back-top" href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // DK WEB SOLUTIONS contact details
+  const WHATSAPP_NUMBER = "918171636905";
+  const BUSINESS_EMAIL = "singhkanyald@gmail.com";
+
+  // Current copyright year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile navigation
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", function () {
+    const open = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.textContent = open ? "✕" : "☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.textContent = "☰";
+    });
+  });
+
+  // Clicking a pricing plan preselects it in the contact form
+  document.querySelectorAll("[data-plan]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      const service = document.getElementById("service");
+      service.value = link.dataset.plan;
+      document.getElementById("message").focus();
+    });
+  });
+
+  // Read and validate enquiry
+  function getEnquiryMessage() {
+    const form = document.getElementById("contactForm");
+
+    if (!form.reportValidity()) return null;
+
+    const name = document.getElementById("name").value.trim();
+    const business = document.getElementById("business").value.trim();
+    const service = document.getElementById("service").value;
+    const details = document.getElementById("message").value.trim();
+
+    return "Hello DK WEB SOLUTIONS!\n\n" +
+      "Name: " + name + "\n" +
+      "Business: " + (business || "Not provided") + "\n" +
+      "Plan / Service: " + service + "\n" +
+      "Project Details: " + details;
+  }
+
+  // WhatsApp enquiry
+  document.getElementById("whatsappBtn").addEventListener("click", function () {
+    const message = getEnquiryMessage();
+    if (!message) return;
+
+    const url = "https://wa.me/" + WHATSAPP_NUMBER +
+      "?text=" + encodeURIComponent(message);
+
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+
+    // Fallback if the browser blocks a new tab
+    if (!opened) window.location.href = url;
+  });
+
+  // Email enquiry
+  document.getElementById("emailBtn").addEventListener("click", function () {
+    const message = getEnquiryMessage();
+    if (!message) return;
+
+    const subject = encodeURIComponent(
+      "Website Enquiry - DK WEB SOLUTIONS"
+    );
+
+    const body = encodeURIComponent(message);
+
+    window.location.href = "mailto:" + BUSINESS_EMAIL +
+      "?subject=" + subject + "&body=" + body;
+  });
+</script>
+
+</body>
+</html>
